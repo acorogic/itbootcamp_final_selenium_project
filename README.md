@@ -1,6 +1,7 @@
 # itbootcamp_final_selenium_project
 
-# Selenium Test Automation Project -https://vue-demo.daniel-avellaneda.com/
+# Selenium Test Automation Project 
+https://vue-demo.daniel-avellaneda.com/
 
 This repository contains a Java project for automating tests using Selenium WebDriver, Maven, and TestNG to test the web application (https://vue-demo.daniel-avellaneda.com/). The project follows the Page Object Model (POM) design pattern, providing a structured and maintainable framework for automating UI tests. The tests are categorized into the following sections:
 
