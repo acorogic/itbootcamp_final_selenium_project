@@ -22,7 +22,10 @@ public class BasicPage {
         catch (Exception e) {return false;}
     }
 
+    public String getUrl (){
+        return driver.getCurrentUrl();
 
+    }
 
 
 }

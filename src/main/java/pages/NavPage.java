@@ -37,4 +37,37 @@ public void clickOnLogoutButton(){
 public boolean elementExistLogoutButton () {
         return elementExist(By.cssSelector("button.btnAdmin"));
 
-}}
+    }
+public WebElement getSignUpButton(){
+        return driver.findElement(By.cssSelector("div.v-toolbar__items a[href=\"/signup\"]"));
+}
+
+public void clickOnSignUpButton() {
+        getSignUpButton().click();
+}
+
+public WebElement getAdminButton(){
+        return driver.findElement(By.cssSelector("button.btnAdmin"));
+}
+
+public void clickOnAdminButton(){
+        getAdminButton().click();
+}
+
+public WebElement getAdminDropDownList(){
+        return driver.findElement(By.cssSelector("div[role=\"menu\"]"));
+}
+
+public void waitForAdminDropDownListToBeVisible(){
+        wait.withMessage("admin dropdown meny is not visible")
+                .until(ExpectedConditions.visibilityOf(getAdminDropDownList()));
+}
+
+public WebElement getCitiesLink(){
+        return driver.findElement(By.cssSelector("a.btnAdminCities"));
+}
+
+public void clickOnCitesLink(){
+        getCitiesLink().click();
+}
+}

@@ -20,10 +20,27 @@ public void waitForPopUpUserDNEtoBeVisible(){
 }
 
 public String getPopUpMessage(){
+
         return driver.findElement(By.cssSelector("div.v-snack__content>ul>li")).getText();
 }
 
 public WebElement closeButton() {
         return driver.findElement(By.cssSelector("div.v-snack__content>button"));
 }
+
+public WebElement getSuccessPopUpDialog(){
+        return driver.findElement(By.cssSelector("div.success>div.v-snack__content"));
+
 }
+    public void waitForSuccesPopUpDialogToBeVisible(){
+        wait
+                .withMessage("pop up dialog is not visible")
+                .until(ExpectedConditions.visibilityOf(getSuccessPopUpDialog()));}
+
+public String getSuccesPopUpDialogMessage(){
+        return getSuccessPopUpDialog().getText();
+}
+
+
+}
+

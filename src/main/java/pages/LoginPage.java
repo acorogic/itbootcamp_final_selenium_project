@@ -72,12 +72,12 @@ public class LoginPage extends BasicPage {
 
     }
 
-    public void enterInvalidCredentials(){
+    public void enterInvalidCredentials(String email, String password){
 getEmailField()
-        .sendKeys("non-existing-user@gmal.com");
+        .sendKeys(email);
 
 getPasswordField()
-        .sendKeys("password123");
+        .sendKeys(password);
     }
 
 
@@ -90,20 +90,20 @@ getPasswordField()
 
 
 
-    public void enterValidUsernameInvalidPassword(){
+    public void enterValidUsernameInvalidPassword(String email, String password){
         getEmailField()
-                .sendKeys("admin@admin.com");
+                .sendKeys(email);
 
         getPasswordField()
-                .sendKeys("password123");
+                .sendKeys(password);
     }
 
-    public void enterValidUsernameValidPassword(){
+    public void enterValidUsernameValidPassword(String email, String password){
         getEmailField()
-                .sendKeys("admin@admin.com");
+                .sendKeys(email);
 
         getPasswordField()
-                .sendKeys("12345");
+                .sendKeys(password);
     }
 
 }
