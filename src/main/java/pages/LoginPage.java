@@ -99,9 +99,12 @@ getPasswordField()
     }
 
     public void enterValidUsernameValidPassword(String email, String password){
+        getEmailField().clear();
         getEmailField()
+
                 .sendKeys(email);
 
+        getPasswordField().clear();
         getPasswordField()
                 .sendKeys(password);
     }

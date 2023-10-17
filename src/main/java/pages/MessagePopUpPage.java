@@ -1,5 +1,6 @@
 package pages;
 
+import org.bouncycastle.pqc.jcajce.provider.lms.BCLMSPrivateKey;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -45,15 +46,36 @@ public String getSuccesPopUpDialogMessage(){
 
 }
 
+
+
+
+
+
+
 public WebElement delConformationButton(){
-        return driver.findElement(By.xpath("//*[@id=\"app\"]/div[7]/div/div/div[2]/button[2]/span"));
+        return driver.findElement(By.cssSelector(".v-dialog__content--active button.text--lighten3"));
 }
-
-public void clikOnDelConformationButton(){
+    public void clikOnDelConformationButton(){
         delConformationButton().click();
-}
+    }
 
 
 
+
+
+
+
+    public String getTextWarningDialog (){
+        return getSuccessPopUpDialog().getText();
+    }
+
+    public void waitForWarningDialog(){
+        wait.withMessage("Warning dialog is not visible")
+                .until(ExpectedConditions.visibilityOf(getSuccessPopUpDialog()));
+    }
+
+    public boolean textWarningDialogIsTrue(){
+        return getTextWarningDialog().contains("Deleted successfully");
+    }
 }
 

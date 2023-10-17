@@ -1,8 +1,10 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v85.indexeddb.model.Key;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -67,7 +69,7 @@ public WebElement getSearchCitiesField(){
 }
 
 public void inputInSearchCitiesField(String cityName){
-        getSearchCitiesField().clear();
+getSearchCitiesField().clear();
         getSearchCitiesField().sendKeys(cityName);
 }
 //
@@ -95,10 +97,37 @@ public WebElement getInputField(){
 }
 
 public void enterNewCityInEditField(String newCity){
-        getInputField().clear();
-        getInputField().sendKeys(newCity);
+
+        getInputField().sendKeys(Keys.chord(Keys.CONTROL,"a"), newCity);
 }
 
+
+
+    public WebElement getOneCellFromTheTable(int row, int column) {
+        return driver.findElement(By
+                .cssSelector(".v-data-table__wrapper tbody tr:nth-child(" + row + ") td:nth-child(" + column + ")"));
+    }
+    public String getTextFromOneCell(int row, int column) {
+        return getOneCellFromTheTable(row, column).getText();
+
+
+}
+//public WebElement  getSelectedRowDellButton(int rowNumber){
+//        return driver.findElement(By.cssSelector("tbody>tr:nth-child("+ rowNumber+")"));
+//}
+//public void clickOnSelectedRowDellButton(int rowNumber){
+//        getSelectedRowDellButton(rowNumber).click();
+
+    public List<WebElement> getDeleteButtonsList () {
+        return driver.findElements(By.cssSelector(".v-data-table__wrapper tbody tr td #delete"));
+    }
+    public WebElement getDeleteButtonFromRow (int rowNumber) {
+        return getDeleteButtonsList().get(rowNumber - 1);
+    }
+    public void clickOnDeleteButtonFromRow (int rowNumber) {
+        getDeleteButtonFromRow(rowNumber).click();
+
+}
 
 
 }

@@ -71,7 +71,7 @@ public class AdminCitiesTests extends BasicTest {
 
     @Test(priority = 3, retryAnalyzer = RetryMyAwersomeApp.class)
 
-    public void CreateNewCity() throws InterruptedException {
+    public void CreateNewCity()  {
 
 
         String usersCity = "Pozega";
@@ -117,7 +117,7 @@ int editRowNumber=1;
         navPage.clickOnCitesLink();
         citiesPage.inputInSearchCitiesField(oldCityName);
         citiesPage.waitForSearchResultsToBeFilteredInRows(numberOfRows);
-citiesPage.clickOnEditButtonFromRow(numberOfRows);
+citiesPage.clickOnEditButtonFromRow(editRowNumber);
 citiesPage.enterNewCityInEditField(newCityName);
 citiesPage.clickOnSaveButton();
         messagePopUpPage.waitForSuccesPopUpDialogToBeVisible();
@@ -143,5 +143,63 @@ citiesPage.clickOnSaveButton();
 //    Verifikovati da poruka sadrzi tekst Saved successfully
 
     }
-}
+    @Test(priority = 5, retryAnalyzer = RetryMyAwersomeApp.class)
+    public void SearchCity() {
+
+        String newCity= "Novi Sad";
+        int numberOfRows=1;
+        int columnNumber=2;
+        int rowNumber=1;
+        navPage.clickOnAdminButton();
+        navPage.clickOnCitesLink();
+        citiesPage.inputInSearchCitiesField(newCity);
+        citiesPage.waitForSearchResultsToBeFilteredInRows(numberOfRows);
+        Assert.assertEquals(citiesPage.getTextFromOneCell(rowNumber, columnNumber), newCity, "Search result is not corrcect");
+
+//    Test #6: Search city
+//    Podaci:
+//    city name: [Ime i prezime polaznika]’s city Edited
+//    Koraci:
+//    Klik na admin dugme iz navigacije
+//    Klik na Cities dugme iz padajuceg Admin menija
+//    U polje za pretragu uneti staro ime grada
+//    Sacekati da broj redova u tabeli bude 1
+//    Verifikovati da se u Name koloni prvog reda nalazi tekst iz pretrage
+
+
+    }
+
+    @Test(priority = 6, retryAnalyzer = RetryMyAwersomeApp.class)
+    public void DeleteCity() {
+
+        String newCity= "Novi Sad";
+        int numberOfRows=1;
+        int deleteRowNumber=1;
+        navPage.clickOnAdminButton();
+        navPage.clickOnCitesLink();
+        citiesPage.inputInSearchCitiesField(newCity);
+        citiesPage.waitForSearchResultsToBeFilteredInRows(numberOfRows);
+        citiesPage.clickOnDeleteButtonFromRow(deleteRowNumber);
+        messagePopUpPage.clikOnDelConformationButton();
+messagePopUpPage.waitForWarningDialog();
+Assert.assertTrue(messagePopUpPage.textWarningDialogIsTrue(), "item is not deleted");
+
+
+//    Test #6: Delete city
+//    Podaci:
+//    city name: [Ime i prezime polaznika]’s city Edited
+//    Koraci:
+//    Klik na admin dugme iz navigacije
+//    Klik na Cities dugme iz padajuceg Admin menija
+//    U polje za pretragu uneti staro ime grada
+//    Sacekati da broj redova u tabeli bude 1
+//    Verifikovati da se u Name koloni prvog reda nalazi tekst iz pretrage
+//    Kliknuti na dugme Delete iz prvog reda
+//    Sacekati da se dijalog za brisanje pojavi
+//    Kliknuti na dugme Delete iz dijaloga
+//    Sacekati da popu za prikaz poruke bude vidljiv
+//    Verifikovati da poruka sadrzi tekst Deleted successfully
+
+
+}}
 
