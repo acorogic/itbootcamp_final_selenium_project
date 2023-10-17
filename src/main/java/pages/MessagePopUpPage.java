@@ -40,6 +40,19 @@ public WebElement getSuccessPopUpDialog(){
 public String getSuccesPopUpDialogMessage(){
         return getSuccessPopUpDialog().getText();
 }
+    public boolean getTextFromPopUpMessageForSuccessfulAddAndEditCity () {
+        return getSuccesPopUpDialogMessage().contains("Saved successfully");
+
+}
+
+public WebElement delConformationButton(){
+        return driver.findElement(By.xpath("//*[@id=\"app\"]/div[7]/div/div/div[2]/button[2]/span"));
+}
+
+public void clikOnDelConformationButton(){
+        delConformationButton().click();
+}
+
 
 
 }

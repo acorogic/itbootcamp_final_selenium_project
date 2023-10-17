@@ -15,7 +15,7 @@ public class LoginTests extends BasicTest {
         loginPage.clickOnLoginButton();
 
         Assert
-                .assertEquals(loginPage.getUrl(), "https://vue-demo.daniel-avellaneda.com/login"); //mozda moze baseUrl+ "/login"
+                .assertEquals(loginPage.getUrl(), baseUrl+"/login");
 
 //        Test #1: Visits the login page
 //        Koraci:
@@ -52,14 +52,17 @@ public class LoginTests extends BasicTest {
 
     public void DisplaysErrorsWhenUserDoesNotExist () {
         loginPage.clickOnLoginButton();
-        loginPage.enterInvalidCredentials();
+
+        String email= "non-existing-user@gmal.com";
+        String password="password123";
+        loginPage.enterInvalidCredentials(email, password);
         loginPage.clickLoginSubmit();
         messagePopUpPage.waitForPopUpUserDNEtoBeVisible();
         Assert.assertEquals(messagePopUpPage
                 .getPopUpMessage(), "User does not exists");
 
         Assert
-                .assertEquals(loginPage.getUrl(), "https://vue-demo.daniel-avellaneda.com/login");
+                .assertEquals(loginPage.getUrl(), baseUrl+"/login");
 
 //
 //    Test #3: Displays errors when user does not exist
@@ -80,14 +83,17 @@ public class LoginTests extends BasicTest {
 
     public void  DisplaysErrorsWhenPasswordIsWrong (){
         loginPage.clickOnLoginButton();
-        loginPage.enterValidUsernameInvalidPassword();
+        String email= "admin1@admin.com";
+        String password="password123";
+
+        loginPage.enterValidUsernameInvalidPassword(email, password);
         loginPage.clickLoginSubmit();
         messagePopUpPage.waitForPopUpUserDNEtoBeVisible();
         Assert.assertEquals(messagePopUpPage
                 .getPopUpMessage(), "Wrong password");
 
         Assert
-                .assertEquals(loginPage.getUrl(), "https://vue-demo.daniel-avellaneda.com/login");
+                .assertEquals(loginPage.getUrl(), baseUrl+"/login");
 
 
 
@@ -107,16 +113,20 @@ public class LoginTests extends BasicTest {
     }
 
 @Test(priority = 5, retryAnalyzer = RetryMyAwersomeApp.class)
+
     public void Login() throws InterruptedException {
     loginPage.clickOnLoginButton();
-    loginPage.enterValidUsernameValidPassword();
+
+    String email= "admin@admin.com";
+    String password="12345";
+    loginPage.enterValidUsernameValidPassword(email, password);
 
 
     loginPage.clickLoginSubmit();
     navPage.waitForHomeButtonToBeVisible();
 
     Assert
-            .assertEquals(loginPage.getUrl(), "https://vue-demo.daniel-avellaneda.com/home");
+            .assertEquals(loginPage.getUrl(), baseUrl+"home");
 
 
 
@@ -136,12 +146,16 @@ public class LoginTests extends BasicTest {
     @Test(priority = 6, retryAnalyzer = RetryMyAwersomeApp.class)
 
     public void Logout() {
+        String email= "admin@admin.com";
+        String password="12345";
         loginPage.clickOnLoginButton();
-        loginPage.enterValidUsernameValidPassword();
+        loginPage.enterValidUsernameValidPassword(email, password);
         loginPage.clickLoginSubmit();
 
-        Assert.assertTrue(navPage.elementExistLogoutButton(), "Logout button is not present");  //asert visible??
-        navPage.clickOnLogoutButton();
+//        Assert.assertTrue(navPage.elementExistLogoutButton(), "Logout button is not present");  //asert visible??
+//        navPage.clickOnLogoutButton();
+
+        Assert.assertTrue(navPage.getLogoutButton().isDisplayed(), "Logout button is not visible");
 
 
 

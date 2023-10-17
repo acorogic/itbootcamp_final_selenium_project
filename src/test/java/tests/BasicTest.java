@@ -8,9 +8,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import pages.LoginPage;
-import pages.MessagePopUpPage;
-import pages.NavPage;
+import pages.*;
 
 
 import java.io.IOException;
@@ -19,7 +17,7 @@ public abstract class BasicTest {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    protected String baseUrl = "https://vue-demo.daniel-avellaneda.com ";
+    protected String baseUrl = "https://vue-demo.daniel-avellaneda.com";
 
     protected Helper helper;
 
@@ -29,6 +27,10 @@ public abstract class BasicTest {
     protected NavPage navPage;
 
     protected UserData userData;
+
+    protected SignupPage signupPage;
+
+    protected CitiesPage citiesPage;
 
     @BeforeClass
     public void setup(){
@@ -41,6 +43,8 @@ public abstract class BasicTest {
         helper=new Helper(driver, wait);
         messagePopUpPage=new MessagePopUpPage(driver, wait);
         navPage=new NavPage(driver,wait);
+        signupPage=new SignupPage(driver, wait);
+        citiesPage=new CitiesPage(driver, wait);
         userData=new UserData();
 
 
