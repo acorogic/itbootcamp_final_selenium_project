@@ -47,12 +47,7 @@ public class LoginPage extends BasicPage {
         return driver.findElement(By.xpath("//*[@id=\"app\"]/div[2]"));
     }
 
-    public void selectEnFromDropDownMenu() {
-        getLangButton().click();
-        Select select = new Select(getLanguageSelectMenu());
 
-        select.selectByValue("EN");
-    }
 
     public WebElement getEnglishLangSelectButton() {
         return driver.findElement(By.xpath("//span[@class='flag f-gb small-flag']"));
@@ -107,6 +102,15 @@ getPasswordField()
         getPasswordField().clear();
         getPasswordField()
                 .sendKeys(password);
+    }
+
+    public void clickOnLangugageDropDownMenu(){
+        getLanguageSelectMenu().click();
+    }
+
+
+    public void clickOnLangugageEN (){
+        getEnglishLangSelectButton().click();
     }
 
 }

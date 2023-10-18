@@ -79,4 +79,43 @@ public WebElement getHomePageButton(){
 public void clickOnHomePageButoon(){
         getHomePageButton().click();
 }
+
+
+public WebElement getLocalDropDown(){
+        return driver.findElement(By.cssSelector(".btnLocaleActivation"));
+}
+
+public void clickOnLocalDropDown(){
+        getLocalDropDown().click();
+}
+public String getHederText(){
+        return driver.findElement(By.cssSelector(".text-xs-center>h1")).getText();
+}
+
+
+public WebElement getLaguageButtonES(){
+        return driver.findElement(By.cssSelector("span.f-es"));
+}
+
+    public WebElement getLaguageButtonCN(){
+        return driver.findElement(By.cssSelector("span.f-cn"));
+    }
+
+    public WebElement getLaguageButtonFR(){
+        return driver.findElement(By.cssSelector("span.f-fr"));
+    }
+
+  public void clickOnLangugageES(){
+        getLaguageButtonES().click();
+  }
+
+  public void clickOnLangugageFR(){
+        getLaguageButtonFR().click();
+  }
+
+  public void clickOnLangugageCN(){
+        getLaguageButtonCN().click();
+
+  }
+
 }
