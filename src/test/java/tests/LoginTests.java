@@ -83,7 +83,7 @@ public class LoginTests extends BasicTest {
 
     public void  DisplaysErrorsWhenPasswordIsWrong (){
         loginPage.clickOnLoginButton();
-        String email= "admin1@admin.com";
+        String email= "admin@admin.com";
         String password="password123";
 
         loginPage.enterValidUsernameInvalidPassword(email, password);
@@ -126,7 +126,7 @@ public class LoginTests extends BasicTest {
     navPage.waitForHomeButtonToBeVisible();
 
     Assert
-            .assertEquals(loginPage.getUrl(), baseUrl+"home");
+            .assertEquals(loginPage.getUrl(), baseUrl+ "/home");
 
 
 
@@ -146,17 +146,17 @@ public class LoginTests extends BasicTest {
     @Test(priority = 6, retryAnalyzer = RetryMyAwersomeApp.class)
 
     public void Logout() {
-        String email= "admin@admin.com";
-        String password="12345";
-        loginPage.clickOnLoginButton();
-        loginPage.enterValidUsernameValidPassword(email, password);
-        loginPage.clickLoginSubmit();
+//        String email= "admin@admin.com";
+//        String password="12345";
+//        loginPage.clickOnLoginButton();
+//        loginPage.enterValidUsernameValidPassword(email, password);
+    //    loginPage.clickLoginSubmit();
 
 //        Assert.assertTrue(navPage.elementExistLogoutButton(), "Logout button is not present");  //asert visible??
-//        navPage.clickOnLogoutButton();
+
 
         Assert.assertTrue(navPage.getLogoutButton().isDisplayed(), "Logout button is not visible");
-
+        navPage.clickOnLogoutButton();
 
 
 //        Koraci:

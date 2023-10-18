@@ -13,6 +13,7 @@ public class NavPage extends BasicPage {
 
 
     public WebElement getHomeButton(){
+
         return driver.findElement(By.cssSelector("a[href=\"/home\"]>span>i"));
     }
 
@@ -69,5 +70,13 @@ public WebElement getCitiesLink(){
 
 public void clickOnCitesLink(){
         getCitiesLink().click();
+}
+
+public WebElement getHomePageButton(){
+        return driver.findElement(By.cssSelector(".v-toolbar__items a[href=\"/\"] "));
+}
+
+public void clickOnHomePageButoon(){
+        getHomePageButton().click();
 }
 }
