@@ -118,4 +118,15 @@ public WebElement getLaguageButtonES(){
 
   }
 
+  public WebElement getMyProfileButton(){
+        return driver.findElement(By.cssSelector(".btnProfile>span>i"));
+  }
+
+  public void waitForMyProfileButtonToBeVisible(){
+        wait.withMessage("my profile button is not visible")
+                .until(ExpectedConditions.visibilityOf(getMyProfileButton()));
+  }
+public void clickOnMyProfileButton(){
+        getMyProfileButton().click();
+}
 }

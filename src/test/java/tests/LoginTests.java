@@ -114,7 +114,7 @@ public class LoginTests extends BasicTest {
 
 @Test(priority = 5, retryAnalyzer = RetryMyAwersomeApp.class)
 
-    public void Login() throws InterruptedException {
+    public void Login()  {
     loginPage.clickOnLoginButton();
 
     String email= "admin@admin.com";

@@ -46,7 +46,7 @@ public class LocalizationTests extends BasicTest {
 
     }
 
-    @Test(priority = 3, retryAnalyzer = RetryMyAwersomeApp.class)
+    @Test(priority = 4, retryAnalyzer = RetryMyAwersomeApp.class)
     public void SetLocaleToFR() {
 
 
