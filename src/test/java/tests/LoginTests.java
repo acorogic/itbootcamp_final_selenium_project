@@ -9,19 +9,13 @@ public class LoginTests extends BasicTest {
     @Test(priority = 1, retryAnalyzer = RetryMyAwersomeApp.class)
 
     public void VisitTheLoginPage() throws InterruptedException {
-//        loginPage.selectEnFromDropDownMenu();
-//        Thread.sleep(3000);
+
         loginPage.selectEnlishLanguge();
         loginPage.clickOnLoginButton();
 
         Assert
-                .assertEquals(loginPage.getUrl(), baseUrl+"/login");
+                .assertEquals(loginPage.getUrl(), baseUrl + "/login");
 
-//        Test #1: Visits the login page
-//        Koraci:
-//        Postaviti EN jezik stranice
-//        Klik na login dugme iz navigacije
-//        Verifikovati da se u url-u stranice javlja ruta /login
 
     }
 
@@ -40,21 +34,15 @@ public class LoginTests extends BasicTest {
                 "Input type doesn't match ");
 
 
-//    Test #2: Checks input types
-//    Koraci:
-//    Klik na login dugme iz navigacije
-//    Verifikovati da polje za unos emaila za atribut type ima vrednost email
-//    Verifikovati da polje za unos lozinke za atribut type ima vrednost password
-
     }
 
     @Test(priority = 3, retryAnalyzer = RetryMyAwersomeApp.class)
 
-    public void DisplaysErrorsWhenUserDoesNotExist () {
+    public void DisplaysErrorsWhenUserDoesNotExist() {
         loginPage.clickOnLoginButton();
 
-        String email= "non-existing-user@gmal.com";
-        String password="password123";
+        String email = "non-existing-user@gmal.com";
+        String password = "password123";
         loginPage.enterInvalidCredentials(email, password);
         loginPage.clickLoginSubmit();
         messagePopUpPage.waitForPopUpUserDNEtoBeVisible();
@@ -62,29 +50,17 @@ public class LoginTests extends BasicTest {
                 .getPopUpMessage(), "User does not exists");
 
         Assert
-                .assertEquals(loginPage.getUrl(), baseUrl+"/login");
+                .assertEquals(loginPage.getUrl(), baseUrl + "/login");
 
-//
-//    Test #3: Displays errors when user does not exist
-//    Podaci:
-//    email: non-existing-user@gmal.com
-//    password: password123
-//    Koraci:
-//    Klik na login dugme iz navigacije
-//    Popuniti login formu podacima za logovanje
-//    Klik na login dugme
-//    Sacekati da popu za prikaz greske bude vidljiv
-//    Verifikovati da greska sadrzi poruku User does not exists
-//    Verifikovati da se u url-u stranice javlja /login ruta
 
     }
 
-    @Test (priority = 4, retryAnalyzer = RetryMyAwersomeApp.class)
+    @Test(priority = 4, retryAnalyzer = RetryMyAwersomeApp.class)
 
-    public void  DisplaysErrorsWhenPasswordIsWrong (){
+    public void DisplaysErrorsWhenPasswordIsWrong() {
         loginPage.clickOnLoginButton();
-        String email= "admin@admin.com";
-        String password="password123";
+        String email = "admin@admin.com";
+        String password = "password123";
 
         loginPage.enterValidUsernameInvalidPassword(email, password);
         loginPage.clickLoginSubmit();
@@ -93,80 +69,40 @@ public class LoginTests extends BasicTest {
                 .getPopUpMessage(), "Wrong password");
 
         Assert
-                .assertEquals(loginPage.getUrl(), baseUrl+"/login");
-
-
-
-//        Test #4: Displays errors when password is wrong
-//        Podaci:
-//        email: admin@admin.com
-//        password: password123
-//        Koraci:
-//        Klik na login dugme iz navigacije
-//        Popuniti login formu podacima za logovanje
-//        Klik na login dugme
-//        Sacekati da popu za prikaz poruke bude vidljiv
-//        Verifikovati da greska sadrzi poruku Wrong password
-//        Verifikovati da se u url-u stranice javlja /login ruta
+                .assertEquals(loginPage.getUrl(), baseUrl + "/login");
 
 
     }
 
-@Test(priority = 5, retryAnalyzer = RetryMyAwersomeApp.class)
+    @Test(priority = 5, retryAnalyzer = RetryMyAwersomeApp.class)
 
-    public void Login()  {
-    loginPage.clickOnLoginButton();
+    public void Login() {
+        loginPage.clickOnLoginButton();
 
-    String email= "admin@admin.com";
-    String password="12345";
-    loginPage.enterValidUsernameValidPassword(email, password);
-
-
-    loginPage.clickLoginSubmit();
-    navPage.waitForHomeButtonToBeVisible();
-
-    Assert
-            .assertEquals(loginPage.getUrl(), baseUrl+ "/home");
+        String email = "admin@admin.com";
+        String password = "12345";
+        loginPage.enterValidUsernameValidPassword(email, password);
 
 
+        loginPage.clickLoginSubmit();
+        navPage.waitForHomeButtonToBeVisible();
 
-   // Test #5: Login
-//    Podaci:
-//    email: admin@admin.com
-//    password: 12345
-//    Koraci:
-//    Klik na login dugme iz navigacije
-//    Popuniti login formu podacima za logovanje
-//    Verifikovati da se u url-u stranice javlja /home ruta
-
-
-}
+        Assert
+                .assertEquals(loginPage.getUrl(), baseUrl + "/home");
+    }
 
 
     @Test(priority = 6, retryAnalyzer = RetryMyAwersomeApp.class)
 
     public void Logout() {
-//        String email= "admin@admin.com";
-//        String password="12345";
-//        loginPage.clickOnLoginButton();
-//        loginPage.enterValidUsernameValidPassword(email, password);
-    //    loginPage.clickLoginSubmit();
-
-//        Assert.assertTrue(navPage.elementExistLogoutButton(), "Logout button is not present");  //asert visible??
 
 
-        Assert.assertTrue(navPage.getLogoutButton().isDisplayed(), "Logout button is not visible");
+        Assert.assertTrue(navPage.getLogoutButton().isDisplayed(),
+                "Logout button is not visible");
         navPage.clickOnLogoutButton();
 
 
-//        Koraci:
-//        Verifikovati da je dugme logout vidljivo na stranici
-//        Kliknuti na logout dugme
-
     }
-
-
-
 
 
 }

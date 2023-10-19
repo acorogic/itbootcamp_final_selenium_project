@@ -12,121 +12,137 @@ public class NavPage extends BasicPage {
     }
 
 
-    public WebElement getHomeButton(){
+    public WebElement getHomeButton() {
 
-        return driver.findElement(By.cssSelector("a[href=\"/home\"]>span>i"));
+        return driver.findElement(By
+                .cssSelector("a[href=\"/home\"]>span>i"));
     }
 
-    public WebElement getLogoutButton(){
+    public WebElement getLogoutButton() {
+
         return driver.findElement(By.cssSelector("button.btnAdmin"));
     }
 
 
-public void waitForHomeButtonToBeVisible(){
+    public void waitForHomeButtonToBeVisible() {
         wait
                 .withMessage("User is not on the homepage")
                 .until(ExpectedConditions.visibilityOf(getHomeButton()));
-}
+    }
 
 
+    public void clickOnLogoutButton() {
 
-public void clickOnLogoutButton(){
         getLogoutButton().click();
-}
+    }
 
 
-public boolean elementExistLogoutButton () {
-        return elementExist(By.cssSelector("button.btnAdmin"));
+    public boolean elementExistLogoutButton() {
+        return elementExist(By
+                .cssSelector("button.btnAdmin"));
 
     }
-public WebElement getSignUpButton(){
-        return driver.findElement(By.cssSelector("div.v-toolbar__items a[href=\"/signup\"]"));
-}
 
-public void clickOnSignUpButton() {
+    public WebElement getSignUpButton() {
+        return driver.findElement(By
+                .cssSelector("div.v-toolbar__items a[href=\"/signup\"]"));
+    }
+
+    public void clickOnSignUpButton() {
         getSignUpButton().click();
-}
+    }
 
-public WebElement getAdminButton(){
+    public WebElement getAdminButton() {
+
         return driver.findElement(By.cssSelector("button.btnAdmin"));
-}
+    }
 
-public void clickOnAdminButton(){
+    public void clickOnAdminButton() {
         getAdminButton().click();
-}
+    }
 
-public WebElement getAdminDropDownList(){
+    public WebElement getAdminDropDownList() {
+
         return driver.findElement(By.cssSelector("div[role=\"menu\"]"));
-}
+    }
 
-public void waitForAdminDropDownListToBeVisible(){
+    public void waitForAdminDropDownListToBeVisible() {
         wait.withMessage("admin dropdown meny is not visible")
                 .until(ExpectedConditions.visibilityOf(getAdminDropDownList()));
-}
+    }
 
-public WebElement getCitiesLink(){
+    public WebElement getCitiesLink() {
+
         return driver.findElement(By.cssSelector("a.btnAdminCities"));
-}
+    }
 
-public void clickOnCitesLink(){
+    public void clickOnCitesLink() {
         getCitiesLink().click();
-}
+    }
 
-public WebElement getHomePageButton(){
+    public WebElement getHomePageButton() {
+
         return driver.findElement(By.cssSelector(".v-toolbar__items a[href=\"/\"] "));
-}
+    }
 
-public void clickOnHomePageButoon(){
+    public void clickOnHomePageButoon() {
         getHomePageButton().click();
-}
+    }
 
 
-public WebElement getLocalDropDown(){
+    public WebElement getLocalDropDown() {
         return driver.findElement(By.cssSelector(".btnLocaleActivation"));
-}
+    }
 
-public void clickOnLocalDropDown(){
+    public void clickOnLocalDropDown() {
         getLocalDropDown().click();
-}
-public String getHederText(){
+    }
+
+    public String getHederText() {
         return driver.findElement(By.cssSelector(".text-xs-center>h1")).getText();
-}
+    }
 
 
-public WebElement getLaguageButtonES(){
+    public WebElement getLaguageButtonES() {
+
         return driver.findElement(By.cssSelector("span.f-es"));
-}
+    }
 
-    public WebElement getLaguageButtonCN(){
+    public WebElement getLaguageButtonCN() {
+
         return driver.findElement(By.cssSelector("span.f-cn"));
     }
 
-    public WebElement getLaguageButtonFR(){
+    public WebElement getLaguageButtonFR() {
+
         return driver.findElement(By.cssSelector("span.f-fr"));
     }
 
-  public void clickOnLangugageES(){
+    public void clickOnLangugageES() {
         getLaguageButtonES().click();
-  }
+    }
 
-  public void clickOnLangugageFR(){
+    public void clickOnLangugageFR() {
         getLaguageButtonFR().click();
-  }
+    }
 
-  public void clickOnLangugageCN(){
+    public void clickOnLangugageCN() {
         getLaguageButtonCN().click();
 
-  }
+    }
 
-  public WebElement getMyProfileButton(){
+    public WebElement getMyProfileButton() {
+
         return driver.findElement(By.cssSelector(".btnProfile>span>i"));
-  }
+    }
 
-  public void waitForMyProfileButtonToBeVisible(){
+    public void waitForMyProfileButtonToBeVisible() {
         wait.withMessage("my profile button is not visible")
                 .until(ExpectedConditions.visibilityOf(getMyProfileButton()));
-  }
-public void clickOnMyProfileButton(){
+    }
+
+    public void clickOnMyProfileButton() {
+
         getMyProfileButton().click();
-}
+    }
 }

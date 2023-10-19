@@ -16,24 +16,14 @@ public class ProfileTests extends BasicTest {
         loginPage.enterValidUsernameValidPassword(email, password);
         loginPage.clickLoginSubmit();
 
-
-
         navPage.waitForMyProfileButtonToBeVisible();
         navPage.clickOnMyProfileButton();
 
         Assert.assertEquals(navPage.getUrl(), baseUrl + "/profile");
         navPage.clickOnLogoutButton();
-//    Test #1: Visits the profile page
-//    Podaci:
-//    email: admin@admin.com
-//    password: 12345
-//    Koraci:
-//    Klik na login dugme iz navigacije
-//    Prijavljivanje na sistem sa admin kredencijalima
-//    Ucitati /profile stranicu
-//    Verifikovati da se u url-u stranice javlja ruta /profile
-//    Verifikovati da email polje za atribut value ima vrednost admin@admin.com
-//    Klik na logout dugme
+
 
     }
+
+
 }

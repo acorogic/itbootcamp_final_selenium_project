@@ -48,7 +48,6 @@ public class LoginPage extends BasicPage {
     }
 
 
-
     public WebElement getEnglishLangSelectButton() {
         return driver.findElement(By.xpath("//span[@class='flag f-gb small-flag']"));
     }
@@ -62,30 +61,12 @@ public class LoginPage extends BasicPage {
 
     }
 
-    public String getUrl (){
+    public String getUrl() {
         return driver.getCurrentUrl();
 
     }
 
-    public void enterInvalidCredentials(String email, String password){
-getEmailField()
-        .sendKeys(email);
-
-getPasswordField()
-        .sendKeys(password);
-    }
-
-
-    public WebElement getLoginSubmitButon(){
-        return driver.findElement(By.cssSelector("button[type=\"submit\"]"));
-    }
-    public void clickLoginSubmit(){
-        getLoginSubmitButon().click();
-    }
-
-
-
-    public void enterValidUsernameInvalidPassword(String email, String password){
+    public void enterInvalidCredentials(String email, String password) {
         getEmailField()
                 .sendKeys(email);
 
@@ -93,7 +74,26 @@ getPasswordField()
                 .sendKeys(password);
     }
 
-    public void enterValidUsernameValidPassword(String email, String password){
+
+    public WebElement getLoginSubmitButon() {
+        return driver
+                .findElement(By.cssSelector("button[type=\"submit\"]"));
+    }
+
+    public void clickLoginSubmit() {
+        getLoginSubmitButon().click();
+    }
+
+
+    public void enterValidUsernameInvalidPassword(String email, String password) {
+        getEmailField()
+                .sendKeys(email);
+
+        getPasswordField()
+                .sendKeys(password);
+    }
+
+    public void enterValidUsernameValidPassword(String email, String password) {
         getEmailField().clear();
         getEmailField()
 
@@ -104,12 +104,12 @@ getPasswordField()
                 .sendKeys(password);
     }
 
-    public void clickOnLangugageDropDownMenu(){
+    public void clickOnLangugageDropDownMenu() {
         getLanguageSelectMenu().click();
     }
 
 
-    public void clickOnLangugageEN (){
+    public void clickOnLangugageEN() {
         getEnglishLangSelectButton().click();
     }
 

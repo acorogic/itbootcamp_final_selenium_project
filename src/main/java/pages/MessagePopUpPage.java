@@ -12,69 +12,68 @@ public class MessagePopUpPage extends BasicPage {
         super(driver, wait);
     }
 
-    public WebElement getPopUp (){
+    public WebElement getPopUp() {
         return driver.findElement(By.cssSelector("div.v-snack__content"));
     }
-public void waitForPopUpUserDNEtoBeVisible(){
+
+    public void waitForPopUpUserDNEtoBeVisible() {
         wait.withMessage("Pop up is not visible")
                 .until(ExpectedConditions.visibilityOf(getPopUp()));
-}
+    }
 
-public String getPopUpMessage(){
+    public String getPopUpMessage() {
 
         return driver.findElement(By.cssSelector("div.v-snack__content>ul>li")).getText();
-}
+    }
 
-public WebElement closeButton() {
+    public WebElement closeButton() {
         return driver.findElement(By.cssSelector("div.v-snack__content>button"));
-}
+    }
 
-public WebElement getSuccessPopUpDialog(){
+    public WebElement getSuccessPopUpDialog() {
         return driver.findElement(By.cssSelector("div.success>div.v-snack__content"));
 
-}
-    public void waitForSuccesPopUpDialogToBeVisible(){
+    }
+
+    public void waitForSuccesPopUpDialogToBeVisible() {
         wait
                 .withMessage("pop up dialog is not visible")
-                .until(ExpectedConditions.visibilityOf(getSuccessPopUpDialog()));}
+                .until(ExpectedConditions.visibilityOf(getSuccessPopUpDialog()));
+    }
 
-public String getSuccesPopUpDialogMessage(){
+    public String getSuccesPopUpDialogMessage() {
         return getSuccessPopUpDialog().getText();
-}
-    public boolean getTextFromPopUpMessageForSuccessfulAddAndEditCity () {
+    }
+
+    public boolean getTextFromPopUpMessageForSuccessfulAddAndEditCity() {
         return getSuccesPopUpDialogMessage().contains("Saved successfully");
 
-}
+    }
 
 
+    public WebElement delConformationButton() {
+        return driver.findElement(By
+                .cssSelector(".v-dialog__content--active button.text--lighten3"));
+    }
 
+    public void clikOnDelConformationButton() {
 
-
-
-
-public WebElement delConformationButton(){
-        return driver.findElement(By.cssSelector(".v-dialog__content--active button.text--lighten3"));
-}
-    public void clikOnDelConformationButton(){
         delConformationButton().click();
     }
 
 
+    public String getTextWarningDialog() {
 
-
-
-
-
-    public String getTextWarningDialog (){
         return getSuccessPopUpDialog().getText();
     }
 
-    public void waitForWarningDialog(){
+    public void waitForWarningDialog() {
         wait.withMessage("Warning dialog is not visible")
                 .until(ExpectedConditions.visibilityOf(getSuccessPopUpDialog()));
     }
 
-    public boolean textWarningDialogIsTrue(){
+    public boolean textWarningDialogIsTrue() {
+
         return getTextWarningDialog().contains("Deleted successfully");
     }
 }

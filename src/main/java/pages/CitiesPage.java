@@ -10,13 +10,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class CitiesPage extends BasicPage{
+public class CitiesPage extends BasicPage {
     public CitiesPage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
 
 
-    public WebElement getnewItemButton(){
+    public WebElement getnewItemButton() {
         return driver.findElement(By.cssSelector("button.btnNewItem"));
     }
 
@@ -37,41 +37,41 @@ public class CitiesPage extends BasicPage{
         return driver.findElement(By.cssSelector("input#name"));
     }
 
-    public String getNewItemInputFieldType (){
+    public String getNewItemInputFieldType() {
         return getNewItemInputField().getAttribute("type");
     }
 
-    public void enterNewItemInNewInputField(String city){
+    public void enterNewItemInNewInputField(String city) {
         getNewItemInputField().clear();
         getNewItemInputField().sendKeys(city);
     }
 
-    public WebElement getSaveButton(){
+    public WebElement getSaveButton() {
         return driver.findElement(By.cssSelector("button.btnSave"));
     }
 
-    public void clickOnSaveButton(){
+    public void clickOnSaveButton() {
         getSaveButton().click();
     }
 
-public WebElement getDeleteButtonFirstCity(){
+    public WebElement getDeleteButtonFirstCity() {
         return driver.findElement(By.cssSelector(".text-start>div> :nth-child(4)"));
 
-}
+    }
 
-public void clickOnDeleteButtonFirstCity(){
+    public void clickOnDeleteButtonFirstCity() {
         getDeleteButtonFirstCity().click();
 
-}
+    }
 
-public WebElement getSearchCitiesField(){
+    public WebElement getSearchCitiesField() {
         return driver.findElement(By.cssSelector("input#search"));
-}
+    }
 
-public void inputInSearchCitiesField(String cityName){
-getSearchCitiesField().clear();
+    public void inputInSearchCitiesField(String cityName) {
+        getSearchCitiesField().clear();
         getSearchCitiesField().sendKeys(cityName);
-}
+    }
 //
 //public List<WebElement> tableRows(){
 //        return driver.findElements(By.cssSelector(".v-data-table__wrapper>table>:nth-child(3)>tr"));
@@ -80,54 +80,56 @@ getSearchCitiesField().clear();
     public void waitForSearchResultsToBeFilteredInRows(int numberOfRows) {
         wait
                 .withMessage("Search results doesnt match to expected number of rows")
-                .until(ExpectedConditions.numberOfElementsToBe(By.cssSelector(".v-data-table__wrapper tbody tr"),numberOfRows));
-}
+                .until(ExpectedConditions.numberOfElementsToBe(By.cssSelector(".v-data-table__wrapper tbody tr"), numberOfRows));
+    }
+
     public List<WebElement> getEditButtonsList() {
         return driver.findElements(By.cssSelector(".v-data-table__wrapper tbody tr td #edit"));
     }
+
     public WebElement getEditButtonFromRow(int rowNumber) {
         return getEditButtonsList().get(rowNumber - 1); //lista pocinje od nule
     }
+
     public void clickOnEditButtonFromRow(int rowNumber) {
         getEditButtonFromRow(rowNumber).click();
 
-}
-public WebElement getInputField(){
+    }
+
+    public WebElement getInputField() {
         return driver.findElement(By.cssSelector("input#name"));
-}
+    }
 
-public void enterNewCityInEditField(String newCity){
+    public void enterNewCityInEditField(String newCity) {
 
-        getInputField().sendKeys(Keys.chord(Keys.CONTROL,"a"), newCity);
-}
-
+        getInputField().sendKeys(Keys.chord(Keys.CONTROL, "a"), newCity);
+    }
 
 
     public WebElement getOneCellFromTheTable(int row, int column) {
         return driver.findElement(By
                 .cssSelector(".v-data-table__wrapper tbody tr:nth-child(" + row + ") td:nth-child(" + column + ")"));
     }
+
     public String getTextFromOneCell(int row, int column) {
         return getOneCellFromTheTable(row, column).getText();
 
 
-}
-//public WebElement  getSelectedRowDellButton(int rowNumber){
-//        return driver.findElement(By.cssSelector("tbody>tr:nth-child("+ rowNumber+")"));
-//}
-//public void clickOnSelectedRowDellButton(int rowNumber){
-//        getSelectedRowDellButton(rowNumber).click();
+    }
 
-    public List<WebElement> getDeleteButtonsList () {
+
+    public List<WebElement> getDeleteButtonsList() {
         return driver.findElements(By.cssSelector(".v-data-table__wrapper tbody tr td #delete"));
     }
-    public WebElement getDeleteButtonFromRow (int rowNumber) {
+
+    public WebElement getDeleteButtonFromRow(int rowNumber) {
         return getDeleteButtonsList().get(rowNumber - 1);
     }
-    public void clickOnDeleteButtonFromRow (int rowNumber) {
+
+    public void clickOnDeleteButtonFromRow(int rowNumber) {
         getDeleteButtonFromRow(rowNumber).click();
 
-}
+    }
 
 
 }

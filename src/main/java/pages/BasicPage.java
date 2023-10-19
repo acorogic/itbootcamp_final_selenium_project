@@ -16,13 +16,15 @@ public class BasicPage {
     public boolean elementExist(By by) {
 
 
-        try {driver.findElement(by);
+        try {
+            driver.findElement(by);
             return true;
+        } catch (Exception e) {
+            return false;
         }
-        catch (Exception e) {return false;}
     }
 
-    public String getUrl (){
+    public String getUrl() {
         return driver.getCurrentUrl();
 
     }

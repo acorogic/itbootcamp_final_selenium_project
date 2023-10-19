@@ -13,10 +13,7 @@ public class LocalizationTests extends BasicTest {
         navPage.clickOnLocalDropDown();
         navPage.clickOnLangugageES();
         Assert.assertEquals(navPage.getHederText(), "Página de aterrizaje");
-//        Test #1: Set locale to ES
-//        Koraci:
-//        Postaviti jezik na ES
-//        Verifikovati da se na stranici u hederu javlja tekst Página de aterrizaje
+
 
     }
 
@@ -24,15 +21,10 @@ public class LocalizationTests extends BasicTest {
     public void SetLocaleToEN() {
 
 
-       navPage.clickOnLocalDropDown();
+        navPage.clickOnLocalDropDown();
         loginPage.clickOnLangugageEN();
         Assert.assertEquals(navPage.getHederText(), "Landing");
 
-
-//    Test #2: Set locale to EN
-//    Koraci:
-//    Postaviti jezik na ES
-//    Verifikovati da se na stranici u hederu javlja tekst Landing
 
     }
 
@@ -50,7 +42,7 @@ public class LocalizationTests extends BasicTest {
     public void SetLocaleToFR() {
 
 
-       navPage.clickOnLocalDropDown();
+        navPage.clickOnLocalDropDown();
         navPage.clickOnLangugageFR();
         Assert.assertEquals(navPage.getHederText(), "Page d'atterrissage");
 
